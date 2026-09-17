@@ -23,17 +23,26 @@
     };
 };*/
 
+/* 1. ИЗБИРАМЕ НОВИЯ ФИЗИЧЕСКИ ЛАЙАУТ */
 / {
     chosen {
         zmk,physical-layout = &layout_60_ansi;
     };
+};
 
-    /* Презаписваме хардуерните параметри на kscan през абсолютния му път */
-    kscan0: kscan {
-        columns = <15>;
-        rows = <5>;
-    };
+/* 2. ОБВЪРЗВАМЕ ГО С ВАШАТА V1 МАТРИЦА */
+&layout_60_ansi {
+    transform = <&v1_transform>;
+};
 
+/* 3. ПОПРАВКА НА ХАРДУЕРНИЯ ДРАЙВЕР ЧРЕЗ ЕТИКЕТА МУ */
+&kscan0 {
+    columns = <15>;
+    rows = <5>;
+};
+
+/* 4. ДЕФИНИРАНЕ НА ВАШАТА ТОЧНА МАТРИЦА */
+/ {
     v1_transform: v1_transform {
         compatible = "zmk,matrix-transform";
         columns = <15>;
@@ -47,6 +56,7 @@
         >;
     };
 };
+
 
 &layout_60_ansi {
     transform = <&v1_transform>;
