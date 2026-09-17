@@ -1,3 +1,4 @@
 include:
   - board: bt60_hs//zmk
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=y
+    #cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=y
+    snippet: studio-rpc-usb-uart
