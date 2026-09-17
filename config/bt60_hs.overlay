@@ -27,20 +27,13 @@
     chosen {
         zmk,physical-layout = &layout_60_ansi;
     };
-};
 
-&layout_60_ansi {
-    transform = <&v1_transform>;
-};
+    /* Презаписваме хардуерните параметри на kscan през абсолютния му път */
+    kscan0: kscan {
+        columns = <15>;
+        rows = <5>;
+    };
 
-/* 1. ПРАВИЛНА ПОПРАВКА НА ХАРДУЕРНИЯ ДРАЙВЕР ЗА ZMK В ZEPHYR 4.1 */
-&kscan {
-    columns = <15>;
-    rows = <5>;
-};
-
-/* 2. ВАШАТА ТОЧНА МАТРИЦА */
-/ {
     v1_transform: v1_transform {
         compatible = "zmk,matrix-transform";
         columns = <15>;
@@ -55,3 +48,6 @@
     };
 };
 
+&layout_60_ansi {
+    transform = <&v1_transform>;
+};
