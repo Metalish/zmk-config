@@ -2,12 +2,11 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://zephyrproject.org
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      #revision: main # Use this in general
+      revision: refs/pull/3506/head  # This is for a specific fix
       import: app/west.yml
   self:
     path: config
